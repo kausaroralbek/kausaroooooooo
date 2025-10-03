@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap"
+    />
+    <title>Space Tourism | Crew</title>
+    <style>
+      body {
+        background: url("background-crew-desktop.jpg") no-repeat center
+          center/cover;
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .nav-bar {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 2rem 4rem;
+        position: absolute;
+        top: 0;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+        backdrop-filter: blur(10px);
+      }
+      .nav-menu li {
+        list-style: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .crew-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: calc(100vh - 100px);
+        padding: 0 5rem;
+      }
+      .crew-text {
+        max-width: 40%;
+        text-align: left;
+      }
+      .crew-image {
+        width: 300px;
+        height: 400px;
+        margin-right: 200px;
+        margin-top: 100px;
+      }
+      .buttons {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .button {
+        width: 12px;
+        height: 12px;
+        background-color: gray;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .button.active {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination-mars.html">Destination</a></li>
+      </ul>
+    </nav>
+
+    <div class="crew-container" id="crew-container"></div>
+
+    <div class="buttons">
+      <div class="button active" onclick="changeCrew(0)"></div>
+      <div class="button" onclick="changeCrew(1)"></div>
+      <div class="button" onclick="changeCrew(2)"></div>
+      <div class="button" onclick="changeCrew(3)"></div>
+    </div>
+
+    <script>
+      const crewMembers = [
+        {
+          role: "Commander",
+          name: "Douglas Hurley",
+          description:
+            "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+          image: "image-douglas-hurley.png",
+        },
+        {
+          role: "Mission Specialist",
+          name: "Mark Shuttleworth",
+          description:
+            "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. He was also the first South African in space.",
+          image: "image-mark-shuttleworth.png",
+        },
+        {
+          role: "Pilot",
+          name: "Victor Glover",
+          description:
+            "Victor Jerome Glover Jr. is a NASA astronaut and former naval aviator. He was part of the first operational flight of the SpaceX Crew Dragon to the International Space Station.",
+          image: "image-victor-glover.png",
+        },
+        {
+          role: "Flight Engineer",
+          name: "Anousheh Ansari",
+          description:
+            "Anousheh Ansari is an Iranian-American engineer and co-founder of Prodea Systems. She became the first Iranian in space as a self-funded space tourist.",
+          image: "image-anousheh-ansari.png",
+        },
+      ];
+
+      function changeCrew(index) {
+        const crewContainer = document.getElementById("crew-container");
+        crewContainer.innerHTML = `
+        <div class="crew-text">
+          <h2 class="text-white text-4xl tracking-widest uppercase mb-40"> <span class="text-gray-400"> 02 </span> Meet your crew</h2>
+          <h3 class="text-5xl uppercase text-gray-500">${crewMembers[index].role}</h3>
+          <h1 class="text-6xl uppercase mt-4">${crewMembers[index].name}</h1>
+          <p class="mt-10 text-lg leading-relaxed">${crewMembers[index].description}</p>
+        </div>
+        <img src="${crewMembers[index].image}" alt="${crewMembers[index].name}" class="crew-image">
+      `;
+        document.querySelectorAll(".button").forEach((btn, idx) => {
+          btn.classList.toggle("active", idx === index);
+        });
+      }
+
+      changeCrew(0);
+      function goCrew() {
+        window.location.href = "crew-commander.html";
+      }
+      function goHome() {
+        window.location.href = "index.html";
+      }
+      function goDes() {
+        window.location.href = "destination-moon.html";
+      }
+    </script>
+  </body>
+</html>

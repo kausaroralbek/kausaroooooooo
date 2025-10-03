@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap">
+  <title>Space Tourism | Technology</title>
+  <style>
+      body {
+        background: url('background-technology-desktop.jpg') no-repeat center center/cover;
+        color: white;
+        font-family: 'Barlow Condensed', sans-serif;
+        height: 100vh;
+        overflow: auto;
+      }
+       .nav-bar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: absolute;
+            top: 0;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .nav-menu li {
+            list-style: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    .nav-menu li:hover, .active {
+      border-bottom: solid 3px gainsboro;
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6rem;
+    }
+    .text-section {
+      max-width: 40%;
+    }
+    .number-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .number-nav div {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    .number-nav div:hover, .number-nav .active {
+      background: white;
+      color: black;
+    }
+    .image-section img {
+      width: 450px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li> 
+        <li> <a href="destination-mars.html">Destination</a></li>
+        <li><a href="crew-commander.html">Crew</a></li> 
+        <li><a href="technology-capsule.html">Technology</a></li>
+    </ul>
+</nav>
+  <div class="content">
+    <div class="text-section">
+      <h2 class="text-4xl tracking-widest uppercase"><span class="text-gray-400">03</span> Space Launch 101</h2>
+      <div class="flex items-center gap-10 mt-10">
+        <div class="number-nav mt-10">
+          <div onclick="loadData(0)" class="active">1</div>
+          <div onclick="loadData(1)">2</div>
+          <div onclick="loadData(2)">3</div>
+        </div>
+        <div class="mt-10">
+          <h3 class="text-2xl uppercase text-gray-400 mb-4">The Terminology...</h3>
+          <h3 id="title" class="text-5xl font-bold uppercase">Launch Vehicle</h3>
+          <p id="description" class="mt-4 text-lg leading-relaxed">
+            A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="image-section">
+      <img id="image" src="image-launch-vehicle-portrait.jpg" alt="Launch Vehicle">
+    </div>
+  </div>
+  <script>
+    const techData = [
+      {
+        title: "Launch Vehicle",
+        description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond.",
+        image: "image-launch-vehicle-portrait.jpg"
+      },
+      {
+        title: "Spaceport",
+        description: "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to a seaport for ships or airport for aircraft.",
+        image: "image-spaceport-portrait.jpg"
+      },
+      {
+        title: "Space Capsule",
+        description: "A space capsule is an often crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings.",
+        image: "image-space-capsule-portrait.jpg"
+      }
+    ];
+
+    function loadData(index) {
+      document.getElementById("title").innerText = techData[index].title;
+      document.getElementById("description").innerText = techData[index].description;
+      document.getElementById("image").src = techData[index].image;
+      document.getElementById("image").alt = techData[index].title;
+      
+      document.querySelectorAll(".number-nav div").forEach((el, i) => {
+        el.classList.toggle("active", i === index);
+      });
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+    function goDes() {
+      window.location.href = "destination-moon.html";
+    }
+    function goCrew() {
+      window.location.href = "crew-commander.html";
+    }
+  </script>
+</body>
+</html>

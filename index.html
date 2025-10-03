@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Space Tourism Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: url("background-home-desktop.jpg") no-repeat center
+          center/cover;
+        color: white;
+        font-family: "Barlow Condensed", sans-serif;
+        height: 100vh;
+        overflow: auto;
+      }
+      .nav-bar {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 2rem 4rem;
+        position: absolute;
+        top: 0;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+        backdrop-filter: blur(10px);
+      }
+      .nav-menu li {
+        list-style: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .main-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        width: 80%;
+        max-width: 1200px;
+        padding: 4rem 2rem;
+      }
+      .text-content {
+        max-width: 600px;
+        text-align: left;
+      }
+      .explore-btn {
+        background: white;
+        color: black;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .explore-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination-mars.html">Destination</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <div class="text-content">
+        <h2 class="text-lg uppercase tracking-widest">
+          So, you want to travel to
+        </h2>
+        <h1 class="text-9xl font-bold">SPACE</h1>
+        <p class="mt-6 text-gray-300 text-lg leading-relaxed">
+          Let’s face it; if you want to go to space, you might as well genuinely
+          go to outer space and not hover kind of on the edge of it. Well sit
+          back, and relax because we’ll give you a truly out-of-this-world
+          experience!
+        </p>
+      </div>
+      <div class="explore-btn">EXPLORE</div>
+    </main>
+  </body>
+</html>
